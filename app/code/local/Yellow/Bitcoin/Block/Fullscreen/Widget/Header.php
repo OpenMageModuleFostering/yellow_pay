@@ -25,15 +25,32 @@
      * SOFTWARE.
      *
      **/
-    class Yellow_Bitcoin_Helper_Data extends Mage_Core_Helper_Abstract
+
+    Class Yellow_Bitcoin_Block_Fullscreen_Widget_Header extends Mage_Core_Block_Template
     {
         /**
-         * check if the fullscreen setting is set to yes / no
-         * @return bool
+         * return store name
+         * @return null|string
          */
-        public function isFullScreen()
-        {
-            return ( Mage::getStoreConfig('payment/bitcoin/fullscreen') == 1 );
+        public function getStoreName(){
+            return Mage::app()->getStore()->getName();
         }
 
+        /**
+         * return store's logo src
+         * @return string
+         */
+        public function getLogoSrc()
+        {
+           return $this->getSkinUrl(Mage::getStoreConfig('design/header/logo_src'));
+        }
+
+        /**
+         * return alt text for store's logo
+         * @return mixed
+         */
+        public function getLogoAlt()
+        {
+            return Mage::getStoreConfig('design/header/logo_alt');
+        }
     }

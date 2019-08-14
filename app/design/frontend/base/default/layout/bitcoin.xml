@@ -1,19 +1,35 @@
-<?xml version="1.0"?>   
-<layout version="0.1.0"> 
+<?xml version="1.0"?>
+<layout version="0.1.0">
     <checkout_onepage_review>
         <reference name="checkout.onepage.review.info.items.after">
             <block name="yellow_widget" type="bitcoin/widget"/>
-        </reference>		
+        </reference>
     </checkout_onepage_review>
-    <bitcoin_index_status>   
-        <reference name="root">   
+    <bitcoin_index_pay>
+        <reference name="root">
+            <action method="addBodyClass"><classname></classname></action>
+            <remove name="left" />
+            <remove name="right" />
             <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>   
-        </reference>   
-        <reference name="content">   
-            <block type="bitcoin/status" name="bitcoin_status" template="bitcoin/status.phtml"/>   
-        </reference>   
+                <template>page/empty.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="setTitle" translate="title"><title>Pay With Yellow</title></action>
+            <action method="addItem"><type>skin_css</type><name>css/bitcoin.css</name><params/></action>
+        </reference>
+        <reference name="content">
+            <block type="bitcoin/fullscreen_widget_content" name="widget_content" template="bitcoin/fullscreen/widget/content.phtml"/>
+        </reference>
+    </bitcoin_index_pay>
+    <bitcoin_index_status>
+        <reference name="root">
+            <remove name="left" />
+            <remove name="right" />
+            <action method="setTemplate">
+                <template>page/empty.phtml</template>
+            </action>
+        </reference>
     </bitcoin_index_status>
 </layout>   
 	

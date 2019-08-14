@@ -21,17 +21,13 @@
     if ($iframe): echo $iframe;?>
         <script type="text/javascript">
             function invoiceListener(event) {
-                console.log(event);
-                if (event.origin != "https://yolanda-perkins.herokuapp.com" && !/\.yellowpay\.co$/.test(event.origin) ) {
+                if (event.origin != "https://yolanda-perkins.herokuapp.com") {
                     alert("Received message from unexpected domain: " + event.origin);
                     return;
                 }
                 switch (event.data) {
                     case "authorizing":
-                        buttons = $$("button.btn-checkout");
-                        buttons.each(function (btn) {
-                            btn.click();
-                        })
+                        window.location = "<?php echo Mage::getUrl("bitcoin/index/status");?>";
                         break;
                     case "expired":
                     case "refund_requested":
