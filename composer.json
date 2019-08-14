@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Yellow_Pay",
+    "type": "magento-module",
+    "license": "MITL",
+    "homepage": "",
+    "description": "Accept payments in Bitcoin and have them automatically converted to your local currency",
+    "authors": [
+    {
+        "name": "James Piechota",
+        "email": "james@yellowpay.co"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
